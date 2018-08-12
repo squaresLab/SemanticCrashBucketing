@@ -1,0 +1,51 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vdbe.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vdbe.c
+@@ -6009,13 +6009,21 @@ case OP_VBegin: {
+ #endif /* SQLITE_OMIT_VIRTUALTABLE */
+ 
+ #ifndef SQLITE_OMIT_VIRTUALTABLE
+-/* Opcode: VCreate P1 * * P4 *
++/* Opcode: VCreate P1 P2 * * *
+ **
+-** P4 is the name of a virtual table in database P1. Call the xCreate method
+-** for that table.
++** P2 is a register that holds the name of a virtual table in database
++** P1. Call the xCreate method for that table.
+ */
+ case OP_VCreate: {
+-  rc = sqlite3VtabCallCreate(db, pOp->p1, pOp->p4.z, &p->zErrMsg);
++  Mem sMem;          /* For storing the record being decoded */
++  memset(&sMem, 0, sizeof(sMem));
++  sMem.db = db;
++  rc = sqlite3VdbeMemCopy(&sMem, &aMem[pOp->p2]);
++  if( rc==SQLITE_OK ){
++    const char *zTab = (const char*)sqlite3_value_text(&sMem);
++    rc = sqlite3VtabCallCreate(db, pOp->p1, zTab, &p->zErrMsg);
++  }
++  sqlite3VdbeMemRelease(&sMem);
+   break;
+ }
+ #endif /* SQLITE_OMIT_VIRTUALTABLE */
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vtab.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vtab.c
+@@ -389,6 +389,7 @@ void sqlite3VtabFinishParse(Parse *pParse, Token *pEnd){
+     char *zStmt;
+     char *zWhere;
+     int iDb;
++    int iReg;
+     Vdbe *v;
+ 
+     /* Compute the complete text of the CREATE VIRTUAL TABLE statement */
+@@ -423,8 +424,10 @@ void sqlite3VtabFinishParse(Parse *pParse, Token *pEnd){
+     sqlite3VdbeAddOp2(v, OP_Expire, 0, 0);
+     zWhere = sqlite3MPrintf(db, "name='%q' AND type='table'", pTab->zName);
+     sqlite3VdbeAddParseSchemaOp(v, iDb, zWhere);
+-    sqlite3VdbeAddOp4(v, OP_VCreate, iDb, 0, 0, 
+-                         pTab->zName, sqlite3Strlen30(pTab->zName) + 1);
++
++    iReg = ++pParse->nMem;
++    sqlite3VdbeAddOp4(v, OP_String8, 0, iReg, 0, pTab->zName, 0);
++    sqlite3VdbeAddOp2(v, OP_VCreate, iDb, iReg);
+   }
+ 
+   /* If we are rereading the sqlite_master table create the in-memory

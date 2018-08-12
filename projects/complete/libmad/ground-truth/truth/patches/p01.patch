@@ -1,0 +1,17 @@
+--- /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
++++ /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
+@@ -2629,8 +2629,12 @@
+ 		   *stream->main_data + stream->md_len - si.main_data_begin);
+ 
+       if (md_len > si.main_data_begin) {
+-	assert(stream->md_len + md_len -
+-	       si.main_data_begin <= MAD_BUFFER_MDLEN);
++	if (stream->md_len + md_len -
++	       si.main_data_begin <= MAD_BUFFER_MDLEN) {
++
++    stream->error = MAD_ERROR_NOMEM;
++    return -1;
++  }
+ 
+ 	memcpy(*stream->main_data + stream->md_len,
+ 	       mad_bit_nextbyte(&stream->ptr),

@@ -1,0 +1,13 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
+@@ -161,6 +161,10 @@ int sqlite3Fts3InitTokenizer(
+   zEnd = &zCopy[strlen(zCopy)];
+ 
+   z = (char *)sqlite3Fts3NextToken(zCopy, &n);
++  if( z==0 ){
++    assert( n==0 );
++    z = zCopy;
++  }
+   z[n] = '\0';
+   sqlite3Fts3Dequote(z);
+ 

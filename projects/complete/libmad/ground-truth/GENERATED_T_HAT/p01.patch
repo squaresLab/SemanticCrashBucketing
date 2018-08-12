@@ -1,0 +1,17 @@
+--- /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
++++ /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
+@@ -2632,9 +2632,11 @@
+ 	assert(stream->md_len + md_len -
+ 	       si.main_data_begin <= MAD_BUFFER_MDLEN);
+ 
+-	memcpy(*stream->main_data + stream->md_len,
+-	       mad_bit_nextbyte(&stream->ptr),
+-	       frame_used = md_len - si.main_data_begin);
++// ROOIBOS START
++memcpy(*stream->main_data + stream->md_len, 
++
++	       mad_bit_nextbyte(&stream->ptr), 1);
++// ROOIBOS END
+ 	stream->md_len += frame_used;
+       }
+     }

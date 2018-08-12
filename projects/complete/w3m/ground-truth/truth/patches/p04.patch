@@ -1,0 +1,32 @@
+--- /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
++++ /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
+@@ -6317,16 +6317,11 @@
+     while (*line != '\0') {
+ 	char *str, *p;
+ 	int is_tag = FALSE;
+-	int pre_mode;
+ 
+-  if (obuf->table_level >= 0) { 
+-    pre_mode = tbl_mode->pre_mode;
+-  } else {
+-    pre_mode = obuf->flag;
+-  }
+-
+-	int end_tag = (obuf->table_level >= 0) ? tbl_mode->end_tag :
+-	    obuf->end_tag;
++  int pre_mode = (obuf->table_level >= 0 && tbl_mode) ?
++    tbl_mode->pre_mode : obuf->flag;
++  int end_tag = (obuf->table_level >= 0 && tbl_mode) ?
++    tbl_mode->end_tag : obuf->end_tag;
+ 
+ 	if (*line == '<' || obuf->status != R_ST_NORMAL) {
+ 	    /* 
+@@ -6408,7 +6403,7 @@
+ 	}
+ 
+       proc_normal:
+-	if (obuf->table_level >= 0) {
++	if (obuf->table_level >= 0 && tbl && tbl_mode) {
+ 	    /* 
+ 	     * within table: in <table>..</table>, all input tokens
+ 	     * are fed to the table renderer, and then the renderer

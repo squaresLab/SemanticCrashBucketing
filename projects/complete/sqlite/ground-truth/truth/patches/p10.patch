@@ -1,0 +1,11 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
+@@ -5541,7 +5541,7 @@ static int wherePathSolver(WhereInfo *pWInfo, LogEst nRowEst){
+       pWInfo->revMask = pFrom->revLoop;
+     }
+     if( (pWInfo->wctrlFlags & WHERE_SORTBYGROUP)
+-        && pWInfo->nOBSat==pWInfo->pOrderBy->nExpr
++        && pWInfo->nOBSat==pWInfo->pOrderBy->nExpr && nLoop>0
+     ){
+       Bitmask notUsed = 0;
+       int nOrder = wherePathSatisfiesOrderBy(pWInfo, pWInfo->pOrderBy, 

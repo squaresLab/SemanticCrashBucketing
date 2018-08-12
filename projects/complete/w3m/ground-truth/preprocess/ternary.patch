@@ -1,0 +1,21 @@
+diff --git a/file.c b/file.c
+index ddc080f..3ace466 100644
+--- a/file.c
++++ b/file.c
+@@ -6317,8 +6317,14 @@ HTMLlineproc0(char *line, struct html_feed_environ *h_env, int internal)
+     while (*line != '\0') {
+ 	char *str, *p;
+ 	int is_tag = FALSE;
+-	int pre_mode = (obuf->table_level >= 0) ? tbl_mode->pre_mode :
+-	    obuf->flag;
++	int pre_mode;
++
++  if (obuf->table_level >= 0) { 
++    pre_mode = tbl_mode->pre_mode;
++  } else {
++    pre_mode = obuf->flag;
++  }
++
+ 	int end_tag = (obuf->table_level >= 0) ? tbl_mode->end_tag :
+ 	    obuf->end_tag;
+ 

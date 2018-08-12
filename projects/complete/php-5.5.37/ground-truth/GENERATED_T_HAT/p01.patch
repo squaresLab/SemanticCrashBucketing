@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/mbstring/libmbfl/mbfl/mbfilter.c
++++ /home/rvt/repfuzz/experiments/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/mbstring/libmbfl/mbfl/mbfilter.c
+@@ -155,6 +155,11 @@
+ 	/* create convert filter */
+ 	convd->filter1 = NULL;
+ 	convd->filter2 = NULL;
++
++// ROOIBOS START
++if(convd->to  == NULL)
++    exit(101);
++// ROOIBOS END
+ 	if (mbfl_convert_filter_get_vtbl(convd->from->no_encoding, convd->to->no_encoding) != NULL) {
+ 		convd->filter1 = mbfl_convert_filter_new(convd->from->no_encoding, convd->to->no_encoding, mbfl_memory_device_output, NULL, &convd->device);
+ 	} else {

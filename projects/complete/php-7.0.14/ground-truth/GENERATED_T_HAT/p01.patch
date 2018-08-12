@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/php-7.0.14/ground-truth/php/source/7.0.14/ext/wddx/wddx.c
++++ /home/rvt/repfuzz/experiments/complete/php-7.0.14/ground-truth/php/source/7.0.14/ext/wddx/wddx.c
+@@ -970,6 +970,11 @@
+ 							object_init_ex(&obj, pce);
+ 
+ 							/* Merge current hashtable with object's default properties */
++
++// ROOIBOS START
++if(obj.value.obj == NULL)
++    exit(101);
++// ROOIBOS END
+ 							zend_hash_merge(((obj.value.obj)->handlers)->get_properties(&(obj)),
+ 											Z_ARRVAL(ent2->data),
+ 											zval_add_ref, 0);

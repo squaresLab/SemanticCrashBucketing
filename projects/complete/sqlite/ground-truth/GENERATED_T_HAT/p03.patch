@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
+@@ -3954,6 +3954,11 @@
+     int i;
+     struct SrcCount *p = pWalker->u.pSrcCount;
+     SrcList *pSrc = p->pSrc;
++
++// ROOIBOS START
++if(pSrc == NULL)
++    exit(101);
++// ROOIBOS END
+     for(i=0; i<pSrc->nSrc; i++){
+       if( pExpr->iTable==pSrc->a[i].iCursor ) break;
+     }

@@ -1,0 +1,11 @@
+--- /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/form.c
++++ /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/form.c
+@@ -459,6 +459,8 @@ formUpdateBuffer(Anchor *a, Buffer *buf, FormItemList *form)
+ 	}
+ 	else
+ #endif				/* MENU_SELECT */
++  if (!form->value)
++    break;
+ 	    p = form->value->ptr;
+ 	l = buf->currentLine;
+ 	if (form->type == FORM_TEXTAREA) {

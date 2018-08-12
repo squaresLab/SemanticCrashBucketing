@@ -1,0 +1,15 @@
+diff --git a/ext/fts3/fts3_hash.c b/ext/fts3/fts3_hash.c
+index 1a32a53..34ef5b4 100644
+--- a/ext/fts3/fts3_hash.c
++++ b/ext/fts3/fts3_hash.c
+@@ -97,7 +97,9 @@ void sqlite3Fts3HashClear(Fts3Hash *pH){
+ static int fts3StrHash(const void *pKey, int nKey){
+   const char *z = (const char *)pKey;
+   unsigned h = 0;
+-  if( nKey<=0 ) nKey = (int) strlen(z);
++  if( nKey<=0 ) {
++    nKey = (int) strlen(z);
++  }
+   while( nKey > 0  ){
+     h = (h<<3) ^ h ^ *z++;
+     nKey--;

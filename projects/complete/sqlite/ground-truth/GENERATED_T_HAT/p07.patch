@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/build.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/build.c
+@@ -1666,6 +1666,11 @@
+   }else{
+     pPk = sqlite3PrimaryKeyIndex(pTab);
+   }
++
++// ROOIBOS START
++if(pPk == NULL)
++    exit(101);
++// ROOIBOS END
+   pPk->isCovering = 1;
+   assert( pPk!=0 );
+   nPk = pPk->nKeyCol;

@@ -1,0 +1,11 @@
+--- source/7.0.14/ext/wddx/wddx.c
++++ source/7.0.14/ext/wddx/wddx.c
+@@ -970,7 +970,7 @@
+ 							object_init_ex(&obj, pce);
+ 
+ 							/* Merge current hashtable with object's default properties */
+-							zend_hash_merge(Z_OBJPROP(obj),
++							zend_hash_merge(((obj.value.obj)->handlers)->get_properties(&(obj)),
+ 											Z_ARRVAL(ent2->data),
+ 											zval_add_ref, 0);
+ 
