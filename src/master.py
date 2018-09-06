@@ -125,33 +125,33 @@ def try_3_times(binary, crash_file, args, \
 
     return False
 
-def generate_t_hat_patches(project, working_dir, source_dir, binary, \            
-        crash_files, crash_file_dir, args, addr2line_offset, \                  
-        range_backward, range_forward, bug_kind, on_stdin):                     
-                                                                                
-    # change to project working dir                                             
-    current_dir = os.getcwd()                                                   
-    os.chdir(working_dir)                                                       
-                                                                                
-    # delete previously generated patches                                       
-    try:                                                                        
-        shutil.rmtree(patch_dump_dir)                                           
-    except:                                                                     
-        pass                                                                    
-                                                                                
-    mkdir_p(patch_dump_dir)                                                     
-                                                                                
-                                                                                
-    # generate patches                                                          
-    for i,crash_file in enumerate(crash_files):                                 
-        crash_file = crash_file_dir + '/' + crash_file                          
-        patch_path = patch_dump_dir+'/'+("p%02d.patch" % (i+1))                 
-        try_3_times(binary, crash_file, args, \                                 
-                addr2line_offset, range_backward, range_forward, \              
-                bug_kind, source_dir, on_stdin, patch_path)                     
-                                                                                
-                                                                                
-    os.chdir(current_dir) 
+def generate_t_hat_patches(project, working_dir, source_dir, binary, \
+        crash_files, crash_file_dir, args, addr2line_offset, \
+        range_backward, range_forward, bug_kind, on_stdin):
+
+    # change to project working dir
+    current_dir = os.getcwd()
+    os.chdir(working_dir)
+
+    # delete previously generated patches
+    try:
+        shutil.rmtree(patch_dump_dir)
+    except:
+        pass
+
+    mkdir_p(patch_dump_dir)
+
+
+    # generate patches
+    for i,crash_file in enumerate(crash_files):
+        crash_file = crash_file_dir + '/' + crash_file
+        patch_path = patch_dump_dir+'/'+("p%02d.patch" % (i+1))
+        try_3_times(binary, crash_file, args, \
+                addr2line_offset, range_backward, range_forward, \
+                bug_kind, source_dir, on_stdin, patch_path)
+
+
+    os.chdir(current_dir)
 
 def preprocess_ternary(working_dir):
     # pre-apply ternary operator rewrite
@@ -227,7 +227,7 @@ sqlite_project =\
 , "args"             : ""
 , "bucket_args"      : ""
 , "crash_file_dir"   : "./truth/all"
-, "crash_files"      : 
+, "crash_files"      :
                       ["crash01.sql", "crash02.sql", "crash03.sql"
                        ,"crash04.sql", "crash05.sql", "crash06.sql"
                        ,"crash07.sql", "crash08.sql", "crash09.sql"
@@ -240,7 +240,7 @@ sqlite_project =\
 , "ld_path"          : ""
 }
 
-# export LD_LIBRARY_PATH=/home/rvt/repfuzz/experiments/complete/libmad/libmad-0.15.1b/.libs 
+# export LD_LIBRARY_PATH=/home/rvt/repfuzz/experiments/complete/libmad/libmad-0.15.1b/.libs
 libmad_project =\
 { "root"             : "./complete/libmad"
 , "source_dir"       : "./libmad-0.15.1b"
@@ -322,13 +322,13 @@ php_7_project =\
 }
 
 projects =\
-[ w3m_project
-  sqlite_project
-  libmad_project
-  conntrackd_project
-  R_project
-  php_5_project
-  php_7_project
+[ w3m_project,
+  sqlite_project,
+  libmad_project,
+  conntrackd_project,
+  R_project,
+  php_5_project,
+  php_7_project,
 ]
 
 crashes_paths = \
@@ -389,14 +389,14 @@ if __name__ == '__main__':
             os.environ["LD_LIBRARY_PATH"] = ld_path
             os.environ["R_HOME"] = "./R-3.3.2"
             # for bucketing
-            ld_path = "LD_LIBRARY_PATH=%s/R-3.3.2/lib R_HOME=%s/R-3.3.2" % (working_dir, working_dir) 
+            ld_path = "LD_LIBRARY_PATH=%s/R-3.3.2/lib R_HOME=%s/R-3.3.2" % (working_dir, working_dir)
         elif len(ld_path) > 0:
             os.environ["LD_LIBRARY_PATH"] = ld_path
-            ld_path = "LD_LIBRARY_PATH=" + working_dir + '/' + ld_path 
+            ld_path = "LD_LIBRARY_PATH=" + working_dir + '/' + ld_path
 
-        generate_t_hat_patches(project, working_dir, source_dir, binary, \            
-                crash_files, crash_file_dir, args, addr2line_offset, \              
-                range_backward, range_forward, bug_kind, on_stdin) 
+        generate_t_hat_patches(project, working_dir, source_dir, binary, \
+                crash_files, crash_file_dir, args, addr2line_offset, \
+                range_backward, range_forward, bug_kind, on_stdin)
 
         for i,crashes_path in enumerate(crashes_paths):
             crashes_path = working_dir + '/' + crashes_path
@@ -410,7 +410,7 @@ if __name__ == '__main__':
             print 'COLUMN',(i+1)
 
             difference_buckets(ground_truth_buckets, scb_buckets)
-        
+
         current_dir = os.getcwd()
         os.chdir(working_dir)
         status = os.system('%s &> /dev/null' % rebuild_script)

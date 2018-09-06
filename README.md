@@ -1,7 +1,10 @@
 # SemanticCrashBucketing
 
+## Setup
+
 ### Project Dependencies
 
+Install these:
 
 ```
 sudo apt-get install libc6-dbg gdb valgrind gfortran autoconf \
@@ -12,6 +15,26 @@ libnetfilter-conntrack-dev libnetfilter-conntrack3 libmnl-dev bison flex \
 libgc-dev gettext python-pip
 
 sudo pip install requests
+```
+
+### Environment setup
+
+Disable userspace ASLR:
+
+```
+setarch $(uname -m) -R /bin/bash
+```
+
+Setup `PYTHONPATH`:
+
+```
+export PYTHONPATH=$(pwd)/src:$(pwd)/src/experiments
+```
+
+### Run everything
+
+```
+make
 ```
 
 

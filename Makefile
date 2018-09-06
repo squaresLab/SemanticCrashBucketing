@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 all:
-	nohup ./binary/presto.exe -p 8888 &> /dev/null &
+	./binary/presto.exe -p 8888
 
 clean:
 	pkill -9 presto
