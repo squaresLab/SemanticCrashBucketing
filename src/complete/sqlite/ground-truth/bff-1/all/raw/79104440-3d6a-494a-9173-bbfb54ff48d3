@@ -1,0 +1,2 @@
+CREATE TABLE s(a UNIQUE,PRImARY KEY('a'))WITHOUT rowid////////
+.///////;

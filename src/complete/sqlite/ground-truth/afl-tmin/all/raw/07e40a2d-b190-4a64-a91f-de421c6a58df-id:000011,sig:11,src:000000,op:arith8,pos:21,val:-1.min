@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE s USING fts4(tokenize=);

@@ -1,0 +1,2 @@
+select e.*from(s,(e))T
+/--

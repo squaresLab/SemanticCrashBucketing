@@ -1,0 +1,1 @@
+SELECT@0(),fts3_tokenizer(@0);

@@ -1,0 +1,1 @@
+DETACH(select group_concat(t))DETACH(sele†t group_conca;

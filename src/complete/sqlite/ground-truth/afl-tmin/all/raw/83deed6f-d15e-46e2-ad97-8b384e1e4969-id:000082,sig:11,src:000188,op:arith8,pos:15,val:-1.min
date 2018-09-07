@@ -1,0 +1,1 @@
+PRAGMA e;select?"a",""GROUP BY a ORDER BY a;

@@ -1,0 +1,2 @@
+.t0
+select e.*,0 from(s,(a))e;

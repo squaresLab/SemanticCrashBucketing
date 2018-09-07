@@ -1,0 +1,4 @@
+<?php $xml=<<<E00
+<?x?><struct><var name="php_class_name"><string>Throwable</string>
+E00;
+$w=wddx_deserialize($xml);

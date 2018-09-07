@@ -1,0 +1,2 @@
+select e.*from(s,(a))e
+/

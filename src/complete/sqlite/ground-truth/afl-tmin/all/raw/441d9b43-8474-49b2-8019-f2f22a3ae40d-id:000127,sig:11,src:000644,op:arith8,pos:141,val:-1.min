@@ -1,0 +1,1 @@
+CREATe VIRTUAL TABLE à USING fts3(tokenize%);

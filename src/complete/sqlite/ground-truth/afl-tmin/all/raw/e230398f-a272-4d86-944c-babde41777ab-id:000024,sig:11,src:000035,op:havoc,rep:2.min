@@ -1,0 +1,1 @@
+CREATE VIRTUAL TABLE R USING fts4(tokenize%);
