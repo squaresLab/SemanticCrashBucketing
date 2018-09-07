@@ -17,7 +17,13 @@ libgc-dev gettext python-pip
 sudo pip install requests
 ```
 
+Run `./3-build.sh` in each project directory in `src/complete`
+
 ### Environment setup
+
+```
+git clone https://github.com/squaresLab/SemanticCrashBucketing.git && cd SemanticCrashBucketing
+```
 
 Disable userspace ASLR:
 
@@ -25,17 +31,34 @@ Disable userspace ASLR:
 setarch $(uname -m) -R /bin/bash
 ```
 
-Setup `PYTHONPATH`:
-
-```
-export PYTHONPATH=$(pwd)/src:$(pwd)/src/experiments
-```
-
-### Run everything
+Start the patch server:
 
 ```
 make
 ```
+
+Setup `PYTHONPATH`:
+
+```
+cd src
+export PYTHONPATH=$(pwd):$(pwd)/experiments
+```
+
+Run everything:
+
+```
+python master.py
+```
+
+When finished, run `make clean`
+
+### Directory structure
+
+For each project under `src/complete`:
+
+- `GENERATED_T_HAT`: generated patches
+- `truth`: developer fixes and crashing inputs
+- `derived/afl-tmin/bff-5/bff-1/hf/hfcov`: derived crashing inputs and deduplicated inputs for each fuzzer configuration
 
 
 ### One click script/VM:
