@@ -1,0 +1,14 @@
+--- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
+@@ -6031,6 +6031,11 @@
+ 		    break;
+ 		case HTML_N_SELECT_INT:
+ 		    if (n_select >= 0) {
++
++// ROOIBOS START
++if(a_select == NULL)
++    exit(101);
++// ROOIBOS END
+ 			FormItemList *item =
+ 			    (FormItemList *)a_select[n_select]->url;
+ 			item->select_option = select_option[n_select].first;

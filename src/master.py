@@ -321,7 +321,7 @@ php_7_project =\
 , "ld_path"          : ""
 }
 
-projects =\
+projects = \
 [ w3m_project,
   sqlite_project,
   libmad_project,
@@ -349,7 +349,7 @@ def difference_buckets(ground_truth_buckets, scb_buckets):
             print 'Missed bug',missed,'bucket:',(i+1)
         elif len(fixed_t) < len(fixed_t_hat): # t_hat contains extras
             print 'EXTRAS:',len(fixed_t_hat) - len(fixed_t),'\n'.join(list(set(fixed_t_hat) - set(fixed_t)))
-            extras = set(fixed_t_hat) - set(fixed_t)            
+            extras = set(fixed_t_hat) - set(fixed_t)
             for extra in extras:
                 for j,truth_bucket in enumerate(ground_truth_buckets_fix_set):
                     if extra in truth_bucket:

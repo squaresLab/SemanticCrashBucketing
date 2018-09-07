@@ -26,11 +26,11 @@ def run(binary, crash_file, args, \
     print 'binary:',binary
 
     if on_stdin:
-        cmd = 'gdb -ex "source BestNullDeref.py" -ex "run < %s %s" "%s"' % (args,crash_file,binary)
+        cmd = 'gdb -ex "source experiments/BestNullDeref.py" -ex "run < %s %s" "%s"' % (args,crash_file,binary)
         print 'GDB CMD: %s' % cmd
         os.system(cmd)
     else:
-        cmd = 'gdb -ex "source BestNullDeref.py" -ex "run %s %s" "%s"' % (args,crash_file,binary)
+        cmd = 'gdb -ex "source experiments/BestNullDeref.py" -ex "run %s %s" "%s"' % (args,crash_file,binary)
         print 'GDB CMD: %s' % cmd
         os.system(cmd)
 

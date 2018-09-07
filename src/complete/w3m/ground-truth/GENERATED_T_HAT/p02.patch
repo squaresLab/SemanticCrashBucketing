@@ -1,0 +1,14 @@
+--- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/form.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/form.c
+@@ -455,6 +455,11 @@
+ 	}
+ 	else
+ #endif				/* MENU_SELECT */
++
++// ROOIBOS START
++if(form->value  == NULL)
++    exit(101);
++// ROOIBOS END
+ 	    p = form->value->ptr;
+ 	l = buf->currentLine;
+ 	if (form->type == FORM_TEXTAREA) {
