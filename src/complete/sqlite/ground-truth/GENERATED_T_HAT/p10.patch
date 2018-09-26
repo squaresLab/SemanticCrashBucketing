@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
+@@ -5042,6 +5042,11 @@
+   for(iLoop=0; isOrderDistinct && obSat<obDone && iLoop<=nLoop; iLoop++){
+     if( iLoop>0 ) ready |= pLoop->maskSelf;
+     pLoop = iLoop<nLoop ? pPath->aLoop[iLoop] : pLast;
++
++// ROOIBOS START
++if(pLoop == NULL)
++    exit(101);
++// ROOIBOS END
+     if( pLoop->wsFlags & WHERE_VIRTUALTABLE ){
+       if( pLoop->u.vtab.isOrdered ) obSat = obDone;
+       break;

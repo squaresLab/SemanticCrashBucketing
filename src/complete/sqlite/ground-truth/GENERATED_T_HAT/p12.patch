@@ -1,0 +1,10 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
+@@ -97,6 +97,6 @@
+ static int fts3StrHash(const void *pKey, int nKey){
+   const char *z = (const char *)pKey;
+   unsigned h = 0;
++  if( nKey<=0 ) { if (z == NULL) exit(101); nKey = (int) strlen(z); }
+-  if( nKey<=0 ) nKey = (int) strlen(z);
+   while( nKey > 0  ){
+     h = (h<<3) ^ h ^ *z++;

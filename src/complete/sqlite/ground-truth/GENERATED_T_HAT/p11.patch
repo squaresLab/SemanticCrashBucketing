@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
+@@ -1200,6 +1200,11 @@
+   if( pList==0 ) return;
+   assert( pList->a!=0 || pList->nExpr==0 );
+   for(pItem=pList->a, i=0; i<pList->nExpr; i++, pItem++){
++
++// ROOIBOS START
++if(pItem == NULL)
++    exit(101);
++// ROOIBOS END
+     sqlite3ExprDelete(db, pItem->pExpr);
+     sqlite3DbFree(db, pItem->zName);
+     sqlite3DbFree(db, pItem->zSpan);

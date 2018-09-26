@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
+@@ -3867,6 +3867,11 @@
+     for(pLeft=pSel; pLeft->pPrior; pLeft=pLeft->pPrior);
+     pEList = pLeft->pEList;
+     if( pCte->pCols ){
++
++// ROOIBOS START
++if(pEList == NULL)
++    exit(101);
++// ROOIBOS END
+       if( pEList->nExpr!=pCte->pCols->nExpr ){
+         sqlite3ErrorMsg(pParse, "table %s has %d values for %d columns",
+             pCte->zName, pEList->nExpr, pCte->pCols->nExpr

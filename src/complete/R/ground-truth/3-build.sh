@@ -19,3 +19,5 @@ make clean
 make -j 20
 
 cd ..
+
+cp driver.r R-3.3.2

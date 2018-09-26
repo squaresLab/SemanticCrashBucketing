@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vdbeapi.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vdbeapi.c
+@@ -205,6 +205,11 @@
+      SQLITE_INTEGER,  /* 0x1e */
+      SQLITE_NULL,     /* 0x1f */
+   };
++
++// ROOIBOS START
++if(pVal == NULL)
++    exit(101);
++// ROOIBOS END
+   return aType[pVal->flags&MEM_AffMask];
+ }
+ 
