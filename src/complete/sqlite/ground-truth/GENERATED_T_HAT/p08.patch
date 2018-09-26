@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/select.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/select.c
 @@ -3867,6 +3867,11 @@
      for(pLeft=pSel; pLeft->pPrior; pLeft=pLeft->pPrior);
      pEList = pLeft->pEList;

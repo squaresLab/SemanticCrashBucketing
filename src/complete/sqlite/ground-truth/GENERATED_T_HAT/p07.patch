@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/build.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/build.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/build.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/build.c
 @@ -1666,6 +1666,11 @@
    }else{
      pPk = sqlite3PrimaryKeyIndex(pTab);

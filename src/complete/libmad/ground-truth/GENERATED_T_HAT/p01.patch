@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
-+++ /home/rvt/repfuzz/experiments/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/libmad/ground-truth/libmad-0.15.1b/layer3.c
 @@ -2632,9 +2632,11 @@
  	assert(stream->md_len + md_len -
  	       si.main_data_begin <= MAD_BUFFER_MDLEN);

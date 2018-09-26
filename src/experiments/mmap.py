@@ -6,7 +6,7 @@ mmap_out_file = "mmap.out" # cf dump_map.py
 
 def dump_memory_map(binary, args, crash_file):
     # run gdb and dump mmap.out in current dir
-    os.system('gdb -q -ex "source dump_mmap.py" -ex "run %s %s" "%s"' % \
+    os.system('gdb -q -ex "source /home/vagrant/SemanticCrashBucketing/src/experiments/dump_mmap.py" -ex "run %s %s" "%s"' % \
              (args,crash_file,binary))
     mmap = rof(mmap_out_file)
     return mmap

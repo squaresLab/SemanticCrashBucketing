@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/where.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/where.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/where.c
 @@ -5042,6 +5042,11 @@
    for(iLoop=0; isOrderDistinct && obSat<obDone && iLoop<=nLoop; iLoop++){
      if( iLoop>0 ) ready |= pLoop->maskSelf;

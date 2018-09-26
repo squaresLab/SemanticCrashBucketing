@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
 @@ -1200,6 +1200,11 @@
    if( pList==0 ) return;
    assert( pList->a!=0 || pList->nExpr==0 );

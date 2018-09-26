@@ -80,11 +80,22 @@ class DebugSession():
                   (sal.line, sal.line+10), \
                   to_string=True)
 
-        print("[DEBUG GDB] [+] CRASH TEXT: %s" % crashing_code)
+        if crashing_code.endswith(".S\n"):
+            frame = frame.older()
+            sal = frame.find_sal()
+            print('sal line:',sal.line)
+            gdb.execute("up 1")
+            crashing_code = \
+              gdb.execute("list %d,%d" % \
+                  (sal.line, sal.line+10), \
+                  to_string=True)
+
+
+        print("[DEBUG GDB] [+] CRASH TEXT: %r" % crashing_code)
 
         crashing_code = crashing_code.replace('"', "'")
 
-        pat = "(\w+->\w+->\w+)|(\w+->\w+\.\w+->\w+)|\w+->\w+(\[\w+\])?|\w+(\[\w+\])|\*\w+"
+        pat = "(\w+->\w+->\w+)|(\w+->\w+\.\w+->\w+)|\w+->\w+(\[\w+\])?|\w+(\[\w+\])|\*\w+|\([\w.]+\)->\w+(\[\w+\])?"
         cmd = 'echo %r | grep -Po "%s"' % (crashing_code, pat)
 
         s = subprocess.check_output(cmd, shell=True)
@@ -93,6 +104,10 @@ class DebugSession():
         print("[DEBUG GDB] Vars to Check:\n%s" % s)
 
         var_name = self.get_first_invalid_access(s.split('\n'))
+
+        if var_name == None:
+            print("[DEBUG GDB] No invalid accesses")
+            execute('quit')
 
         print("[DEBUG GDB] first invalid access: %s" % var_name)
 

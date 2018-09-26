@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
 @@ -1320,6 +1320,11 @@
    assert( p->op!=TK_INTEGER || (p->flags & EP_IntValue)!=0
             || sqlite3GetInt32(p->u.zToken, &rc)==0 );

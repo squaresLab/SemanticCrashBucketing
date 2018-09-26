@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_tokenizer.c
 @@ -161,6 +161,11 @@
    zEnd = &zCopy[strlen(zCopy)];
  

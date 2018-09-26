@@ -1,8 +1,8 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
-@@ -99,6 +99,11 @@
-   unsigned h = 0;
-   if( nKey<=0 ) nKey = (int) strlen(z);
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3_hash.c
+@@ -101,6 +101,11 @@
+     nKey = (int) strlen(z);
+   }
    while( nKey > 0  ){
 +
 +// ROOIBOS START
