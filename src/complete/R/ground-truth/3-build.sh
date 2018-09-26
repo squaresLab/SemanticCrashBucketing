@@ -14,7 +14,7 @@ cd $MAKE_DIR
 
 make clean
 
-./configure
+./configure --with-x=no
 
 make -j 20
 
