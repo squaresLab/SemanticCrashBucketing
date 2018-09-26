@@ -1,0 +1,14 @@
+--- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/resolve.c
++++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/resolve.c
+@@ -166,6 +166,11 @@
+   const char *zDb
+ ){
+   int n;
++
++// ROOIBOS START
++if(zSpan == NULL)
++    exit(101);
++// ROOIBOS END
+   for(n=0; ALWAYS(zSpan[n]) && zSpan[n]!='.'; n++){}
+   if( zDb && (sqlite3StrNICmp(zSpan, zDb, n)!=0 || zDb[n]!=0) ){
+     return 0;
