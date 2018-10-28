@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/expr.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/expr.c
 @@ -4069,10 +4069,11 @@ static int exprSrcCount(Walker *pWalker, Expr *pExpr){
      int i;
      struct SrcCount *p = pWalker->u.pSrcCount;

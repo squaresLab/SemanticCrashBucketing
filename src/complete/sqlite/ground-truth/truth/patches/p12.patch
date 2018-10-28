@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/ext/fts3/fts3.c
 @@ -2761,7 +2761,7 @@ static int fts3SegReaderCursor(
    ** calls out here.  */
    if( iLevel<0 && p->aIndex ){

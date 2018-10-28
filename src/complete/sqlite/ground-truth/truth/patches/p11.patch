@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/select.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/select.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/select.c
 @@ -3809,6 +3809,7 @@ static int convertCompoundSelectToSubquery(Walker *pWalker, Select *p){
    pNew->pOrderBy = 0;
    p->pPrior = 0;
