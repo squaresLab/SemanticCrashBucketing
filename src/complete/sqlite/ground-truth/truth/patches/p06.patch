@@ -26,8 +26,8 @@
    break;
  }
  #endif /* SQLITE_OMIT_VIRTUALTABLE */
---- /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vtab.c
-+++ /home/rvt/repfuzz/experiments/complete/sqlite/ground-truth/sqlite/src/vtab.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/vtab.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/sqlite/ground-truth/sqlite/src/vtab.c
 @@ -389,6 +389,7 @@ void sqlite3VtabFinishParse(Parse *pParse, Token *pEnd){
      char *zStmt;
      char *zWhere;
