@@ -12,12 +12,13 @@ libtidy-dev libedit-dev libjpeg-turbo8-dev libreadline-dev \
 libcurl4-gnutls-dev libmcrypt-dev libxslt-dev libbz2-dev \
 tcl libxml2-dev libgdk-pixbuf2.0-dev libglib2.0-dev libnfnetlink-dev \
 libnetfilter-conntrack-dev libnetfilter-conntrack3 libmnl-dev bison flex \
-libgc-dev gettext python-pip
+libnetfilter-cttimeout-dev libssl-dev libgc-dev gettext python-pip re2c \
+libicu-dev liblzma-dev`
 
 sudo pip install requests
 ```
 
-Run `./3-build.sh` in each project directory in `src/complete`
+Run `./3-build.sh` in each project directory in `src/complete/ground-truth`
 
 ### Environment setup
 
