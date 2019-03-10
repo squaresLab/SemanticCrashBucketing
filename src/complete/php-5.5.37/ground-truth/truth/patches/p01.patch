@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/exif/exif.c
-+++ /home/rvt/repfuzz/experiments/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/exif/exif.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/exif/exif.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/php-5.5.37/ground-truth/php/source/5.5.37/ext/exif/exif.c
 @@ -2623,6 +2623,7 @@ static int exif_process_user_comment(image_info_type *ImageInfo, char **pszInfoP
  	*pszEncoding = NULL;
  	/* Copy the comment */

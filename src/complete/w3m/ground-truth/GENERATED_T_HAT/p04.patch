@@ -1,6 +1,6 @@
 --- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
 +++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
-@@ -6299,6 +6299,11 @@
+@@ -6320,6 +6320,11 @@
  	int pre_mode;
  
    if (obuf->table_level >= 0) { 

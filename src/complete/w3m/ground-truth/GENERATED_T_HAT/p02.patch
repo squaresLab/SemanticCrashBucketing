@@ -1,6 +1,6 @@
 --- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/form.c
 +++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/form.c
-@@ -455,6 +455,11 @@
+@@ -459,6 +459,11 @@
  	}
  	else
  #endif				/* MENU_SELECT */

@@ -1,6 +1,6 @@
 --- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
 +++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
-@@ -6031,6 +6031,11 @@
+@@ -6051,6 +6051,11 @@
  		    break;
  		case HTML_N_SELECT_INT:
  		    if (n_select >= 0) {

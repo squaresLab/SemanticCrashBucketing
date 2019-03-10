@@ -52,11 +52,12 @@ def partition(file_path, patch, crashes_path, binary, args, on_stdin, ld_path):
     fixed = []
     unfixed = []
     crash_paths = glob.glob(crashes_path+'/*')
+    print "Partitioning..."
     for crash_path in crash_paths:
         if on_stdin:
-            command = '%s %s %s < %s &> /dev/null' % (ld_path, binary, args, crash_path)
+            command = '%s %s %s < %s > /dev/null 2>&1' % (ld_path, binary, args, crash_path)
         else:
-            command = '%s %s %s %s &> /dev/null' % (ld_path, binary, args, crash_path)
+            command = '%s %s %s %s > /dev/null 2>&1' % (ld_path, binary, args, crash_path)
         # print "RUNNING %s" % command
         status = subprocess.call(command, shell=True)
         # returns 11 for SIGSEGV. 128 + 11 = 139
@@ -74,7 +75,7 @@ def bucket(file_path, patch, crashes_path, working_dir, binary, args, on_stdin, 
 
     current_dir = os.getcwd()
     os.chdir(working_dir)
-    status = os.system('%s &> /dev/null' % rebuild_script)
+    status = os.system('%s > /dev/null' % rebuild_script)
     result = os.WEXITSTATUS(status)
     os.chdir(current_dir)
 
@@ -159,7 +160,7 @@ def preprocess_ternary(working_dir):
     os.chdir(working_dir)
     os.system('patch -f -d w3m < preprocess/ternary.patch')
 
-    status = os.system('%s &> /dev/null' % rebuild_script)
+    status = os.system('%s > /dev/null' % rebuild_script)
     result = os.WEXITSTATUS(status)
     os.chdir(current_dir)
 
@@ -172,7 +173,7 @@ def preprocess_if_expansion(working_dir):
     os.chdir(working_dir)
     os.system('patch -f -d sqlite -p1 < preprocess/if-expansion.patch')
 
-    status = os.system('%s &> /dev/null' % rebuild_script)
+    status = os.system('%s > /dev/null' % rebuild_script)
     result = os.WEXITSTATUS(status)
     os.chdir(current_dir)
 
@@ -185,7 +186,7 @@ def preprocess_php_macro(working_dir):
     os.chdir(working_dir)
     os.system('patch -f -d php -p0 < preprocess/expand-macro.patch')
 
-    status = os.system('%s &> /dev/null' % rebuild_script)
+    status = os.system('%s > /dev/null' % rebuild_script)
     result = os.WEXITSTATUS(status)
     os.chdir(current_dir)
 
@@ -322,13 +323,14 @@ php_7_project =\
 }
 
 projects = \
-[ w3m_project,
-  sqlite_project,
-  libmad_project,
-  conntrackd_project,
-  R_project,
-  php_5_project,
-  php_7_project,
+[
+    w3m_project,
+    sqlite_project,
+    libmad_project,
+    conntrackd_project,
+    R_project,
+    php_5_project,
+    php_7_project
 ]
 
 crashes_paths = \
@@ -368,6 +370,9 @@ if __name__ == '__main__':
         elif project == './complete/php-7.0.14':
             print 'PREPROCESSING MACRO EXPANSION'
             preprocess_php_macro(working_dir)
+        elif project == './complete/sqlite':
+            print 'PREPROCESSING IF EXPANSION'
+            preprocess_if_expansion(working_dir)
 
         source_dir = config["source_dir"]
         binary = config["binary"]
@@ -413,7 +418,7 @@ if __name__ == '__main__':
 
         current_dir = os.getcwd()
         os.chdir(working_dir)
-        status = os.system('%s &> /dev/null' % rebuild_script)
+        status = os.system('%s > /dev/null' % rebuild_script)
         result = os.WEXITSTATUS(status)
         os.chdir(current_dir)
 

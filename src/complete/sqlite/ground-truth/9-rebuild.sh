@@ -9,7 +9,7 @@ COMPILE_RESULT=$?
 
 cd ..
 
-./run_sqlite3_once.sh
+./run_sqlite3_once.sh &> /dev/null
 
-echo $COMPILE_RESULT
+# echo $COMPILE_RESULT
 exit $COMPILE_RESULT

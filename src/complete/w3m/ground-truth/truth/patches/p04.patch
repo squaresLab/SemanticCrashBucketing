@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
-+++ /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
 @@ -6317,16 +6317,11 @@
      while (*line != '\0') {
  	char *str, *p;

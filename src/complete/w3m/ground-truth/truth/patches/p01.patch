@@ -1,5 +1,5 @@
---- /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
-+++ /home/rvt/repfuzz/experiments/complete/w3m/ground-truth/w3m/file.c
+--- /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
++++ /home/vagrant/SemanticCrashBucketing/src/complete/w3m/ground-truth/w3m/file.c
 @@ -3025,9 +3025,9 @@ flushline(struct html_feed_environ *h_env, struct readbuffer *obuf, int indent,
  	tmp = Sprintf("<INPUT_ALT hseq=\"%d\" fid=\"%d\" name=\"%s\" type=\"%s\" value=\"%s\">",
  		     obuf->input_alt.hseq,
