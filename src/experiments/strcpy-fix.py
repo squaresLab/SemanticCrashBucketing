@@ -96,4 +96,4 @@ memcpy(:[1], :[2], 1);
                                            ltrace_pattern, \
                                            [x]), \
                                            valid_patches)
-    os.system('./9-rebuild.sh')
+    os.system('./9-rebuild.sh > /dev/null')

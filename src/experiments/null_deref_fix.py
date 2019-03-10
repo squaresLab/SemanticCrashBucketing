@@ -87,7 +87,7 @@ if(:[1] == NULL)
     if len(successful_patches) > 0:
         success = True
 
-    os.system('./9-rebuild.sh')
+    os.system('./9-rebuild.sh > /dev/null')
     return success
 
 if __name__ == '__main__':

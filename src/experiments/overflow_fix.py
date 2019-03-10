@@ -43,6 +43,7 @@ memcpy(:[1], :[2], 1);
 """
 // ROOIBOS START
 strncpy(:[1], :[2], 1);
+:[1][1] = 0;
 // ROOIBOS END
 """
     else:
@@ -123,13 +124,13 @@ strncpy(:[1], :[2], 1);
                     else:
                         # return the first one
                         dump_patch(patch_path, successful_patch.text)
-                        os.system('./9-rebuild.sh &> /dev/null')
+                        os.system('./9-rebuild.sh > /dev/null')
                         return True
 
         if len(successful_patches) > 0:
             success = True
 
-        os.system('./9-rebuild.sh &> /dev/null')
+        os.system('./9-rebuild.sh > /dev/null')
         return success
 
 if __name__ == '__main__':

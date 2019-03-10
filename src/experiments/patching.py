@@ -52,7 +52,7 @@ def apply_rebuild_revert(binary, args, crash_file, ltrace_pattern, patches, \
         if patch:
             applied_patches.append((file_to_patch,patch))
 
-    status = os.system('./9-rebuild.sh')
+    status = os.system('./9-rebuild.sh > /dev/null')
     result = os.WEXITSTATUS(status)
 
     if result != 0:
