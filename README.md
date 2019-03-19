@@ -1,6 +1,10 @@
 # SemanticCrashBucketing
 
-## Setup
+## VM
+
+[Download the VM here](https://cmu.box.com/s/upvblwni31ykwl9ow66vrjtqqcv2of9q). It has all of scripts pre-configured, and all the the dependencies pre-installed. See the `README.md` in the VM for more information.
+
+## Running from source
 
 ### Project Dependencies
 
@@ -60,8 +64,3 @@ For each project under `src/complete`:
 - `GENERATED_T_HAT`: generated patches
 - `truth`: developer fixes and crashing inputs
 - `derived/afl-tmin/bff-5/bff-1/hf/hfcov`: derived crashing inputs and deduplicated inputs for each fuzzer configuration
-
-
-### One click script/VM:
-
-Coming soon!
