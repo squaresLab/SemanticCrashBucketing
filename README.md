@@ -2,7 +2,7 @@
 
 ## VM
 
-[Download the VM here](https://cmu.box.com/s/upvblwni31ykwl9ow66vrjtqqcv2of9q). It has all of scripts pre-configured, and all the the dependencies pre-installed. Typical use is VirtualBox, 1 vCPU, and at least 4GB RAM (6GB RAM recommended). See the `README.md` in the VM for more information.
+[Download the VM here](https://cmu.box.com/s/upvblwni31ykwl9ow66vrjtqqcv2of9q). It has all of the scripts pre-configured, and all the the dependencies pre-installed. Typical use is VirtualBox, 1 vCPU, and at least 4GB RAM (6GB RAM recommended). See the `README.md` in the VM for more information.
 
 ## Running from source
 
