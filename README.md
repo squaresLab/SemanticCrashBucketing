@@ -56,7 +56,7 @@ If you want to run, compile, or apply patches, consider using the VM, described 
 ## VM
 
 The VM has all of the scripts pre-configured, and all the the dependencies pre-installed. Typical use is VirtualBox, 1 vCPU, and at least 4GB RAM (6GB RAM recommended). See the `README.md` in the VM for more information.
-[Download the VM](https://cmu.box.com/s/upvblwni31ykwl9ow66vrjtqqcv2of9q). 
+[Download the VM](https://zenodo.org/record/2646520#.XMTUmhNKiu4). 
 
 ## Running from source
 
