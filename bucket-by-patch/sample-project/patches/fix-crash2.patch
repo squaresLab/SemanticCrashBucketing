@@ -1,0 +1,13 @@
+diff --git a/bucket-by-patch/sample-project/src/main.c b/bucket-by-patch/sample-project/src/main.c
+index cf73844..b57afd1 100644
+--- a/bucket-by-patch/sample-project/src/main.c
++++ b/bucket-by-patch/sample-project/src/main.c
+@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
+     if (strcmp (str, "crash1") == 0) {
+         raise(SIGSEGV);
+     } else if (strcmp (str, "crash2") == 0) {
+-        raise(SIGSEGV);
++        return;
+     }
+     return 0;
+ }
