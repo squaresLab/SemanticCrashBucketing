@@ -43,7 +43,7 @@ def partition(
     fixed = []
     unfixed = []
     crash_paths = glob.glob(crashes_path + "/*")
-    print "Partitioning..."
+    print "Partitioning with patch %s..." % patch
     for crash_path in crash_paths:
         if on_stdin:
             command = "%s %s %s < %s > /dev/null 2>&1" % (
