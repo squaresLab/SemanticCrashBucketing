@@ -7,7 +7,7 @@ index cf73844..b57afd1 100644
          raise(SIGSEGV);
      } else if (strcmp (str, "crash2") == 0) {
 -        raise(SIGSEGV);
-+        return;
++        return 0;
      }
      return 0;
  }
