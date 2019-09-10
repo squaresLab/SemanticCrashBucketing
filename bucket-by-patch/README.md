@@ -32,7 +32,10 @@ projects = [
 - `on_stdin` should be set to `True` if input in the `crashes` file should be fed to the program via `stdin`. If set to `False`, the crashing input file path in `crashes` will be passed on the command line immediately follow `args` string.
 - `ld_path` prefixes the binary with some string (e.g., for setting `LD_LIBRARY_PATH=/path/library`).
 
-Multiple projects can be added to the `projects` list (as in [other experiments](https://github.com/squaresLab/SemanticCrashBucketing/blob/master/src/master.py)).
+Notes:
+- Multiple projects can be added to the `projects` list (as in [other experiments](https://github.com/squaresLab/SemanticCrashBucketing/blob/master/src/master.py)).
+- If the patch applies but fails to build, the script will try and revert the patch. This usually succeeds, so that your project is not left in a broken state. The script then moves on to the next patch.
+- Patching is set up to use `git apply` (and you can generate patches with `git diff > my-patch.patch`). Running `git apply path/to/patch` at the root of the project directory is a good sanity check to do before running the script. If you do not want to use `git apply`, change the `apply` and `revert` function commands in `bucket-by-patch.py`.
 
 ## Run the `sample-project` example
 
