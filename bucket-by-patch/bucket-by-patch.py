@@ -43,6 +43,7 @@ def partition(
     fixed = []
     unfixed = []
     crash_paths = glob.glob(crashes_path + "/*")
+    print "-----------------------------"
     print "Partitioning with patch %s..." % patch
     for crash_path in crash_paths:
         if on_stdin:
@@ -126,13 +127,14 @@ def bucket_with_patches(patches, ld_path, crashes_path, working_dir, binary_path
             on_stdin,
             ld_path,
         )
-        print "Patch %s #fixed crashes: %d" % (
+        print "Patch %s #fixed crashes: %d\n  %s" % (
             patch,
             len(fixed),
+            '\n  '.join(fixed)
         )
         print "Patch %s #unfixed crashes: %d" % (
             patch,
-            len(unfixed),
+            len(unfixed)
         )
         result.append((fixed, unfixed))
     return result
