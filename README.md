@@ -19,6 +19,7 @@ This page is about the code and data related to our ASE '18 paper
 ## FAQ
 
 > I have some patches, programs, and crashing inputs. Can I use this work to bucket the crashing inputs with patches? 
+
 Yes: See the [bucket-by-patch](https://github.com/squaresLab/SemanticCrashBucketing/tree/master/bucket-by-patch) directory to do this with your own programs and patches.
 
 
