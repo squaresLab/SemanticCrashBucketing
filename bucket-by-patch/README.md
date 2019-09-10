@@ -12,7 +12,7 @@ First set up the project as follows. The `sample-project` is a minimal working s
 - Include a `rebuild.sh` script at the root of the project. This script will be called after a patch is applied. The script can, for example, call `make -C` in the source directory of your project (that's what it does for the example project).
 - Configure the `bucket-by-patch.py` script in this folder. Change the following:
 
-```
+```python
 sample_project = {
     "root": "./sample-project",
     "binary": "./src/main",
@@ -45,7 +45,7 @@ Details:
 
 The sample project contains a simple program:
 
-```
+```c
 int main(int argc, char **argv) {
     char str[100];
 
