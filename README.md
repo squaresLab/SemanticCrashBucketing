@@ -1,5 +1,5 @@
 This page is about the code and data related to our ASE '18 paper
-[Semantic Crash Bucketing](https://www.cs.cmu.edu/~rvantond/pdfs/scb-ase-2018.pdf).
+[Semantic Crash Bucketing](https://rijnard.com/pdfs/scb-ase-2018.pdf).
 <details>
   <summary>Click for Citation</summary>
   
